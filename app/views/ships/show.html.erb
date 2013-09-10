@@ -1,0 +1,50 @@
+<h1>Viewing <%= @ship.name %></h1>
+<div class="form-horizontal">
+<fieldset>
+  <legend><%= @ship.name %> Ship Information</legend>
+  <div class="control-group">
+    <label class="control-label">Name:</label>
+    <div class="controls">
+      <label class="radio inline"><strong><%= @ship.name %></strong></label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Crew:</label>
+    <div class="controls">
+      <span class="radio inline"><strong><%= @ship.crew %></strong></span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Speed:</label>
+    <div class="controls">
+      <span class="radio inline"><strong><%= @ship.speed %></strong></span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Has Astromech:</label>
+    <div class="controls">
+      <span class="radio inline"><strong><%= @ship.has_astromech ? "Yes" : "No" %></strong></span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Armament:</label>
+    <div class="controls">
+      <span class="radio inline"><strong><%= @ship.armament %></strong></span>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>Pilots Assigned to This Type of Ship</legend>
+  <%= render('pilots_display') %>
+</fieldset>
+
+  <div class="modal-footer">
+    <%= link_to("Edit", edit_ship_path(@ship), :class => "btn btn-primary", :title => "Edit #{ @ship.name }.") %>
+    <%= link_to("Back to Home", ships_path, :class => "btn btn-inverse", :title => "Return to the Home page.") %>
+  </div>
+</div>
